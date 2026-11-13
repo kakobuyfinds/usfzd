@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="description" content="Svensk guide till FSBuy spreadsheet. Hitta kategorier för sneakers, kläder och accessoarer och jämför produktlänkar, mått, QC-bilder och frakt till Sverige.">
+  <meta name="theme-color" content="#29254d">
+  <title>FSBuy spreadsheet på svenska – kategorier, QC och frakt</title>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sv_SE">
+  <meta property="og:title" content="FSBuy spreadsheet på svenska">
+  <meta property="og:description" content="Hitta rätt kategori och kontrollera produktlänken, storleken och fraktvillkoren innan du beställer.">
+  <!-- Sökunderlag: relevanta sökträffar och åtkomliga sidor från tio domäner. Googles exakta förstasida kunde inte verifieras.
+       qcradar.com, maisonlooks.com, fsbuy.org, fsbuy.net, fsbuy-spreadsheet.com,
+       w2cspreadsheet.com, repsheet.net, ssfinds.com, pikobuy.org och fansbuy.net.
+       Återkommande teman: produktkataloger, storlekar, produktlänkar, QC-bilder och frakt. -->
+  <!-- Sökord för redaktionell planering
+       Sekundära: FSBuy produktlänkar, FSBuy storleksguide, FSBuy QC-bilder, FSBuy frakt till Sverige.
+       Långsvans: hur man läser ett FSBuy spreadsheet, FSBuy spreadsheet på svenska,
+       hitta sneakers i en produktlista, kontrollera en produktlänk före köp,
+       kontrollera lagerstatus för vald variant, jämföra färg och modell i annonsen,
+       mäta fotlängd för sneakers, jämföra skostorlekar i EU, välja storlek på T-shirt online,
+       mäta bröstvidd på en T-shirt, jämföra plagglängd i centimeter,
+       mäta ärmlängd på en hoodie, kontrollera axelbredd på jacka, mäta innerbenslängd på byxor,
+       vad visar QC-bilder, kontrollera sömmar på QC-bilder, läsa materialetiketten på ett foto,
+       be om produktfoto med måttband, kontrollera kepsens omkrets, granska lås på smycken,
+       jämföra fraktalternativ till Sverige, skillnad mellan faktisk vikt och volymvikt,
+       räkna om totalkostnad till SEK, kontrollera spårning på internationell frakt,
+       läsa returvillkor före beställning, kontrollera möjliga importavgifter. -->
+  <style>
+    :root{color-scheme:light;--ink:#221f38;--muted:#514c67;--paper:#faf8f3;--line:#dcd6e4;--plum:#29254d;--lime:#e8f4ad;--width:70rem}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.6 system-ui,sans-serif}
+    a{color:inherit;text-underline-offset:.2em}
+    :focus-visible{outline:3px solid #7960cf;outline-offset:4px}
+    .wrap{width:min(var(--width),calc(100% - 2rem));margin-inline:auto}
+    .top{background:var(--plum);color:#fff}
+    .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.85rem}
+    .bar strong{font-size:.9rem;letter-spacing:.09em}
+    .bar a{color:var(--lime)}
+    main{padding-block:1.15rem 3rem}
+    section{margin-block-end:2.6rem}
+    h1,h2,h3,p,figure{margin:0}
+    h1,h2{letter-spacing:-.035em;line-height:1.08}
+    h1{font-size:clamp(2.2rem,6vw,4.6rem);overflow-wrap:anywhere}
+    h2{font-size:clamp(1.45rem,4vw,2.35rem)}
+    h3{font-size:1.13rem;line-height:1.3}
+    p{margin-block-start:.65rem}
+    .categories,.gallery,.notes{display:grid;gap:.65rem}
+    .categories{list-style:none;padding:0;margin:.65rem 0 0;grid-template-columns:repeat(auto-fit,minmax(min(100%,9rem),1fr))}
+    .categories a{display:flex;min-height:3rem;align-items:center;justify-content:space-between;gap:.35rem;padding:.55rem .7rem;border:1px solid var(--line);border-radius:.55rem;background:#fff;font-weight:650;text-decoration:none}
+    .categories a:hover{background:var(--lime);text-decoration:underline}
+    .hero{display:grid;grid-template-columns:1.25fr 1fr;align-items:stretch;background:var(--plum);color:#fff;border-radius:1.1rem;overflow:hidden}
+    .hero-copy{padding:clamp(1.25rem,4vw,3.4rem);align-self:center}
+    .hero p{max-width:48ch;color:#f0edf8}
+    .cta{display:inline-block;margin-block-start:1rem;padding:.65rem 1rem;background:var(--lime);color:var(--ink);border-radius:.4rem;font-weight:750}
+    .hero figure{background:#e9e8ee;color:var(--ink)}
+    img{display:block;width:100%;height:auto}
+    .hero img{aspect-ratio:1.2;object-fit:contain}
+    figcaption{padding:.4rem .75rem;color:var(--muted);font-size:.87rem}
+    .gallery{grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr));margin-block-start:.85rem}
+    .gallery figure,.notes article{border:1px solid var(--line);border-radius:.7rem;background:#fff;overflow:hidden}
+    .gallery img{aspect-ratio:1;object-fit:contain;background:#f6f4f8}
+    .notes{grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr));margin-block-start:.85rem}
+    .notes article{padding:1rem}
+    details{border-bottom:1px solid var(--line);padding:.85rem .25rem}
+    summary{cursor:pointer;font-weight:700}
+    details p{max-width:68ch}
+    footer{background:var(--plum);color:#fff;padding-block:1.3rem}
+    footer p{margin:0}
+    @media(max-width:42rem){.hero{grid-template-columns:1fr}.hero img{max-height:17rem}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "name":"FSBuy spreadsheet på svenska",
+    "inLanguage":"sv",
+    "mainEntity":[
+      {"@type":"Question","name":"Vad är ett FSBuy spreadsheet?","acceptedAnswer":{"@type":"Answer","text":"Det är en produktlista med länkar som hjälper dig att hitta och jämföra varor. Kategorierna på den här sidan öppnar Hipobuyfinds katalog."}},
+      {"@type":"Question","name":"Hur väljer jag storlek på sneakers och kläder?","acceptedAnswer":{"@type":"Answer","text":"Jämför fotlängd med säljarens storlekstabell för skor. För kläder kan du mäta ett plagg som passar och jämföra måtten i centimeter."}},
+      {"@type":"Question","name":"Kan QC-bilder bekräfta att en vara är äkta?","acceptedAnswer":{"@type":"Answer","text":"QC-bilder kan visa skick, mått och synliga detaljer. För att bedöma äkthet behövs även uppgifter om varans ursprung och vid behov en oberoende bedömning."}},
+      {"@type":"Question","name":"Hur jämför jag frakt till Sverige?","acceptedAnswer":{"@type":"Answer","text":"Kontrollera vilka fraktalternativ som finns för ditt postnummer, vilken vikt som debiteras och vilka avgifter som ingår. Räkna sedan om totalsumman till svenska kronor."}}
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/usfzd/">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap bar">
+      <strong>INKÖPSGUIDE</strong>
+      <a href="https://www.hipobuyfind.com">Hipobuyfind</a>
+    </div>
+  </header>
+  <main class="wrap">
+    <section aria-labelledby="kategorier">
+      <h2 id="kategorier">Välj produktkategori</h2>
+      <ul class="categories">
+        <li><a href="https://hipobuyfind.com/category-911-Shoes.html">Skor <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-912-Hoodies%2FSweaters.html">Hoodies och tröjor <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-913-T-Shirts.html">T-shirts <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-914-Jackets.html">Jackor <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-915-Pants%2FShorts.html">Byxor och shorts <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-916-Headwear.html">Huvudbonader <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-917-Sets.html">Klädset <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-918-underwear%2Funderpants.html">Underkläder <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-919-Jersey.html">Matchtröjor <span aria-hidden="true">↗</span></a></li>
+        <li><a href="https://hipobuyfind.com/category-920-Accessories.html">Accessoarer <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </section>
+    <section class="hero" aria-labelledby="rubrik">
+      <div class="hero-copy">
+        <h1 id="rubrik">FSBuy spreadsheet</h1>
+        <p>En svensk guide till att läsa produktlistor och jämföra skor, kläder och accessoarer. Börja i Hipobuyfinds katalog och kontrollera sedan att produktlänken, måtten och fraktvillkoren gäller just din valda vara.</p>
+        <a class="cta" href="https://www.hipobuyfind.com">Öppna Hipobuyfind</a>
+      </div>
+      <figure>
+        <img src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto%2Cq_auto%3Aeco%2Cc_scale%2Cw_300%2Cu_9ddf04c7-2a9a-4d76-add1-d15af8f0263d%2Cc_scale%2Cfl_relative%2Cw_1.0%2Ch_1.0%2Cfl_layer_apply/f888b4a3-a02a-420d-93e3-cb33c3bb30ac/AIR%2BFORCE%2B1%2B%2707.png" width="640" height="640" alt="Vit Nike Air Force 1 ’07 med vit sula" fetchpriority="high" decoding="async">
+        <figcaption>Nike Air Force 1 ’07 · exempel på en sneaker</figcaption>
+      </figure>
+    </section>
+    <section aria-labelledby="bildexempel">
+      <h2 id="bildexempel">Bildexempel för kläder och accessoarer</h2>
+      <div class="gallery">
+        <figure>
+          <img src="https://assets.christiandior.com/is/image/diorprod/LOOK_H_25_1_LOOK_201_E07?%24lookDefault_GH-GHC%24=&amp;bfc=on&amp;crop=568%2C0%2C1864%2C2000&amp;hei=520&amp;qlt=80&amp;scale=1&amp;wid=480" width="480" height="480" alt="Modell i grå Dior CD Icon-tröja" loading="lazy" decoding="async">
+          <figcaption>Dior · grå collegetröja</figcaption>
+        </figure>
+        <figure>
+          <img src="https://media.gucci.com/style/HEXFBFBFB_South_0_160_640x640/1751298339/838745_3HBC4_2600_001_100_0000_Light.jpg" width="640" height="640" alt="Gucci-keps i beige och brun GG-canvas" loading="lazy" decoding="async">
+          <figcaption>Gucci · mönstrad keps</figcaption>
+        </figure>
+        <figure>
+          <img src="https://www.pandolfini.it/uploads/imgup/7811it-Copertina.jpg" width="480" height="480" alt="Röd Hermès Kelly-väska ovanpå en Louis Vuitton-koffert med en ljus scarf" loading="lazy" decoding="async">
+          <figcaption>Hermès och Louis Vuitton · väska och koffert</figcaption>
+        </figure>
+        <figure>
+          <img src="https://assets.christiandior.cn/is/image/diorprod/B1310PTCRSD301_SBG_E01-3?%24r9x10_raw%24=&amp;bfc=on&amp;crop=0%2C0%2C4000%2C5000&amp;hei=520&amp;qlt=85&amp;scale=1&amp;wid=480" width="480" height="480" alt="Guldfärgat Dior Petit CD-armband med vit pärldetalj" loading="lazy" decoding="async">
+          <figcaption>Dior · Petit CD-armband</figcaption>
+        </figure>
+      </div>
+      <p>Bilderna är stilreferenser. Sortiment och tillgänglighet framgår av respektive produktannons.</p>
+    </section>
+    <section aria-labelledby="guider">
+      <h2 id="guider">Tre guider före beställning</h2>
+      <div class="notes">
+        <article>
+          <h3>Produktlänkar och storlekar</h3>
+          <p>Öppna säljarens annons och kontrollera modellnamn, färg, storlek och lagerstatus för just den varianten. Vid köp av sneakers online kan du jämföra fotlängd i centimeter med säljarens tabell för EU-storlekar.</p>
+          <p>Mät bröstvidd och plagglängd på en T-shirt som sitter bra. För hoodies och jackor kan du även jämföra ärmlängd och axelbredd. För byxor kan du utgå från midjemått och innerbenslängd.</p>
+        </article>
+        <article>
+          <h3>QC-bilder och material</h3>
+          <p>QC-bilder är foton från en kvalitetskontroll. När bilder på din vara finns, jämför dem med annonsen och kontrollera sömmar, tryck, materialetikett och synliga skador. Be om ett foto med måttband om passformen är avgörande.</p>
+          <p>För kepsar kan du kontrollera omkrets, spänne och skärm. För väskor och smycken är närbilder på dragkedjor, lås och ytfinish ofta mest användbara.</p>
+        </article>
+        <article>
+          <h3>Frakt till Sverige och total kostnad</h3>
+          <p>Samla varupris, eventuell inrikesfrakt, serviceavgift och internationell frakt innan du jämför två alternativ. Kontrollera om fraktpriset bygger på paketets faktiska vikt eller volymvikt.</p>
+          <p>Fråga vilka importavgifter som kan tillkomma, vad som ingår i fraktalternativet och om spårning finns. Läs villkoren för retur, reklamation och eventuell returfrakt innan du beställer.</p>
+        </article>
+      </div>
+    </section>
+    <section aria-labelledby="faq">
+      <h2 id="faq">Vanliga frågor</h2>
+      <details open>
+        <summary>Vad är ett FSBuy spreadsheet?</summary>
+        <p>Det är en produktlista med länkar som hjälper dig att hitta och jämföra varor. Kategorierna på den här sidan öppnar Hipobuyfinds katalog.</p>
+      </details>
+      <details>
+        <summary>Hur väljer jag storlek på sneakers och kläder?</summary>
+        <p>Jämför fotlängd med säljarens storlekstabell för skor. För kläder kan du mäta ett plagg som passar och jämföra måtten i centimeter.</p>
+      </details>
+      <details>
+        <summary>Kan QC-bilder bekräfta att en vara är äkta?</summary>
+        <p>QC-bilder kan visa skick, mått och synliga detaljer. För att bedöma äkthet behövs även uppgifter om varans ursprung och vid behov en oberoende bedömning.</p>
+      </details>
+      <details>
+        <summary>Hur jämför jag frakt till Sverige?</summary>
+        <p>Kontrollera vilka fraktalternativ som finns för ditt postnummer, vilken vikt som debiteras och vilka avgifter som ingår. Räkna sedan om totalsumman till svenska kronor.</p>
+      </details>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap"><p>Fristående köpguide. <a href="https://www.hipobuyfind.com">Till Hipobuyfind</a></p></div>
+  </footer>
+</body>
+</html>
